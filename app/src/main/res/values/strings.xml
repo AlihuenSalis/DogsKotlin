@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Dogs</string>
+
+    <string name="empty">RAZA INEXISTENTE</string>
+    <string name="breed_info">Ingrese raza de perro a buscar</string>
+</resources>
