@@ -8,9 +8,15 @@ import com.dogs.data.model.Dogs
 import com.dogs.domain.GetDogsByBreedUC
 import com.dogs.domain.GetDogsUC
 import com.dogs.ui.view.MainActivity
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DogViewModel : ViewModel() {
+@HiltViewModel
+class DogViewModel @Inject constructor(
+    private val getDogsUseCase: GetDogsUC,
+    private val getDogsByBreedUC: GetDogsByBreedUC
+) : ViewModel() {
 
     // esto pone los dogs en la interfaz de usuario
     val isLoading = MutableLiveData<Boolean>()
@@ -18,8 +24,8 @@ class DogViewModel : ViewModel() {
     val dogsModel = MutableLiveData<Dogs>()
     val messageList = MutableLiveData<Dogs?>()
 
-    var getDogsUseCase = GetDogsUC()
-    var getDogsByBreedUC = GetDogsByBreedUC()
+//    var getDogsUseCase = GetDogsUC()
+//    var getDogsByBreedUC = GetDogsByBreedUC()
 
     fun onCreate() {
         // crea una corrutina que se maneja automaticamente

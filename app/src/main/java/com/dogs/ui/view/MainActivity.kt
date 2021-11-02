@@ -14,8 +14,10 @@ import com.dogs.R
 import com.dogs.databinding.ActivityMainBinding
 import com.dogs.ui.Adapter.DogAdapter
 import com.dogs.ui.viewModel.DogViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     private lateinit var binding:ActivityMainBinding
@@ -60,7 +62,8 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         if (!query.isNullOrEmpty()) {
-            dogViewModel.getBreeds(query.lowercase(Locale.getDefault()))
+//            dogViewModel.getBreeds(query.lowercase(Locale.getDefault()))
+            dogViewModel.getBreeds(query.toLowerCase(Locale.getDefault()))
         }
         return true
     }
